@@ -38,6 +38,8 @@ const onlyTags = () => {
     return tags;
 }
 
+const categories = ["Frontend Development", "Backend Development", "Database", "DevOps", "Mobile Development"];
+
 const Form = () => {
 
 
@@ -46,7 +48,8 @@ const Form = () => {
         title: '',
         image: '',
         content: '',
-        tags: []
+        tags: [],
+        category: ''
     }
 
     const [posts, setPosts] = useState(dbPosts);
@@ -134,6 +137,19 @@ const Form = () => {
                                 ))}
                             </div>
 
+                            {/* Select di Categorie */}
+                            <div className="categories">
+                                <h3>Categorie</h3>
+                                <select
+                                    defaultValue={post.category}
+                                    name="category"
+                                    onChange={(e) => changedPost('category', e.target.value)}>
+                                    <option value="">Seleziona una categoria</option>
+                                    {categories.map(cat => (
+                                        <option key={cat} value={cat}>{cat}</option>
+                                    ))}
+                                </select>
+                            </div>
 
                             <button>Salva</button>
                         </form>
@@ -147,7 +163,7 @@ const Form = () => {
                         <>
                             <h1>Posts creati</h1>
                             <div className="cards">
-                                {posts.map(({ title, content, image, tags }, index) => (
+                                {posts.map(({ title, content, image, tags, category = null }, index) => (
                                     <Card
                                         key={`post-${index}`}
                                         title={title}
@@ -155,6 +171,7 @@ const Form = () => {
                                         image={image}
                                         tags={tags}
                                         tagColors={tagColors}
+                                        category={category ? category : null}
                                         clickButton={() => { removePost(index) }} />
                                 ))}
                             </div>
@@ -162,8 +179,8 @@ const Form = () => {
                     }
                 </div>
 
-            </div>
-        </main>
+            </div >
+        </main >
 
     )
 }
