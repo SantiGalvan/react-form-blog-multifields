@@ -11,7 +11,6 @@ body {
 
 h1 {
     color: #eae2b7;
-    margin-top: 50px;
     text-align: center;
 }
 
@@ -21,6 +20,18 @@ button {
     color: #edede9;
     border: transparent;
     cursor: pointer;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #000000d4;
 }
 
 //? Main
@@ -51,10 +62,10 @@ button {
     width: 400px;
     background-color: #fcbf49;
     border-radius: 20px;
-    margin-top: 50px;
+    margin-top: 10px;
     text-align: center;
 
-
+    // Form
     form {
         padding: 20px 0;
         display: flex;
@@ -75,6 +86,7 @@ button {
             color: #22223b;
         }
 
+        // Input
         input {
             height: 40px;
             width: 300px;
@@ -89,6 +101,7 @@ button {
             }
         }
 
+        // Textarea
         textarea {
             width: 300px;
             border-radius: 10px;
@@ -102,6 +115,24 @@ button {
             }
         }
 
+        // Checkbox
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            label {
+                display: flex;
+                align-items: center;
+            }
+
+            .check {
+                width: 20px;
+            }
+        }
+
     }
 
 }
@@ -109,7 +140,7 @@ button {
 //? Card
 .card {
     width: 400px;
-    margin-top: 50px;
+    margin-top: 10px;
     background-color: #fff;
     border-radius: 20px;
     border-radius: 20px;
@@ -149,5 +180,23 @@ button {
         background-color: #ef233c;
         display: flex;
         align-items: center;
+    }
+}
+
+//? Badge
+.badge-container {
+    display: flex;
+    margin-top: 30px;
+
+}
+
+.badge {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: rgba(251, 251, 251, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
     }
 }

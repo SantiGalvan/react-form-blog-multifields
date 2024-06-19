@@ -1,6 +1,7 @@
 import { FaTrashAlt } from "react-icons/fa";
+import Badge from '../Badge/Badge';
 
-const Card = ({ title, content, image, clickButton }) => {
+const Card = ({ title, content, image, tags, tagColors, clickButton }) => {
     return (
         <div className="card">
             <figure>
@@ -10,6 +11,9 @@ const Card = ({ title, content, image, clickButton }) => {
                 <h2>{title}</h2>
                 <p>{content}</p>
                 <button onClick={clickButton}>Elimina <FaTrashAlt /></button>
+                <div className="badge-container">
+                    {tags.map((tag, i) => <Badge tagColors={tagColors} key={i} tag={tag} style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
+                </div>
             </div>
         </div>
     )
